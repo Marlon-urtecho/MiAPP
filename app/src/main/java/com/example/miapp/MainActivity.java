@@ -12,89 +12,81 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Decalaramos variables para instanciar componentes
-EditText username , password, repassword;
-Button singnup , singnin;
+    // Declarar variables para instanciar componentes
+    EditText username, password, repassword;
+    Button signup, signin;
 
-DBHelper DB;
+    DBHelper DB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Inicializamos varibles
+        // Inicializar variables
+        // Para los campos de texto
+        username = findViewById(R.id.username);
+        password = findViewById(R.id.password);
+        repassword = findViewById(R.id.repassword);
 
-        //para los campos de texto
-        username = (EditText)findViewById(R.id.username);
-        password = (EditText)findViewById(R.id.password);
-        repassword =(EditText)findViewById(R.id.repassword);
+        // Para los botones
+        signup = findViewById(R.id.btnsinup);
+        signin = findViewById(R.id.btnsignin);
 
-        //para los botones
-        singnup =(Button)findViewById(R.id.btnsinup);
-        singnin =(Button)findViewById(R.id.btnsignin);
-
-        //para las variable de helper
+        // Para la variable de helper
         DB = new DBHelper(this);
 
-        // Metodos para recibir click de los botones setclick
-
-        singnup.setOnClickListener(new View.OnClickListener() {
+        // Métodos para recibir clics de los botones
+        signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                handleSignup();
+            }
+        });
 
-                String user = username.getText().toString();
-                String pass =password.getText().toString();
-                String repass = repassword.getText().toString();
+        signin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 
-                if (user.equals("")|| pass.equals("")||repass.equals("")){
-                    Toast.makeText(MainActivity.this,"Rellene todos los campos",Toast.LENGTH_LONG).show();
-                }else {
+    @Override
+    protected void onDestroy() {
+        DB.close(); // Cerrar la conexión a la base de datos al destruir la actividad
+        super.onDestroy();
+    }
 
-                    if (pass.equals(repass)){
+    private void handleSignup() {
+        String user = username.getText().toString();
+        String pass = password.getText().toString();
+        String repass = repassword.getText().toString();
 
-                        boolean checkuser = DB.checkusername(user);
+        if (user.equals("") || pass.equals("") || repass.equals("")) {
+            Toast.makeText(MainActivity.this, "Rellene todos los campos", Toast.LENGTH_LONG).show();
+        } else {
+            if (pass.equals(repass)) {
+                boolean checkuser = DB.checkUsername(user);
 
-                        if(checkuser ==false){
-                            boolean insert = DB.insertData(user,pass);
+                if (!checkuser) {
+                    boolean insert = DB.insertData(user, pass);
 
-                            if (insert==true){
-                                Toast.makeText(MainActivity.this, "Registrado Exisitosamente", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
-                                startActivity(intent);
-
-                            }else {
-                                Toast.makeText(MainActivity.this, "Fallo al Registrarse", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                        else {
-                            Toast.makeText(MainActivity.this, "El usuario ya existe inicie Sessión", Toast.LENGTH_SHORT).show();
-                        }
-
-                    }else{
-                        Toast.makeText(MainActivity.this, "Contraseña y usuario nno coinciden", Toast.LENGTH_SHORT).show();
+                    if (insert) {
+                        Toast.makeText(MainActivity.this, "Registrado Exitosamente", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(MainActivity.this, "Fallo al Registrarse", Toast.LENGTH_SHORT).show();
                     }
-                    
-
+                } else {
+                    Toast.makeText(MainActivity.this, "El usuario ya existe, inicie sesión", Toast.LENGTH_SHORT).show();
                 }
-
-
+            } else {
+                Toast.makeText(MainActivity.this, "Contraseña y usuario no coinciden", Toast.LENGTH_SHORT).show();
             }
-        });
-
-
-        singnin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
-            startActivity(intent);
-
-            }
-        });
-
-
-
-
+        }
     }
 }

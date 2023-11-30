@@ -5,5 +5,205 @@
    android:layout_width="match_parent"
    android:layout_height="match_parent"
    tools:context=".HomeActivity">
+   
+   <com.google.android.material.textfield.TextInputLayout
+      
+      android:id="@+id/txtNumerot"
+      android:layout_width="359dp"
+      android:layout_height="87dp"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="32dp"
+      android:layout_marginEnd="32dp"
+      android:hint="@string/numero_de_contacto"
+      app:boxBackgroundMode="outline"
+      app:boxCornerRadiusTopEnd="10dp"
+      app:boxCornerRadiusTopStart="10dp"
+      app:helperText="Ingrese su Número de telefono"
+      app:helperTextEnabled="true"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/txtEdad"
+      tools:ignore="MissingConstraints">
+   
+      <com.google.android.material.textfield.TextInputEditText
+         android:layout_width="match_parent"
+         android:layout_height="47dp"
+         android:background="@android:color/white"
+         android:backgroundTint="@color/gray"
+         android:inputType="phone">
+         
+      </com.google.android.material.textfield.TextInputEditText>
+   
+   
+   </com.google.android.material.textfield.TextInputLayout>
+   
+   <com.google.android.material.textfield.TextInputLayout
+      
+      android:id="@+id/txtEdad"
+      android:layout_width="359dp"
+      android:layout_height="87dp"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="32dp"
+      android:layout_marginEnd="32dp"
+      android:hint="@string/edad"
+      app:boxBackgroundMode="outline"
+      app:boxCornerRadiusTopEnd="10dp"
+      app:boxCornerRadiusTopStart="10dp"
+      app:errorEnabled="false"
+      app:helperText="Indique su edad"
+      app:helperTextEnabled="true"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/txtDireccion"
+      tools:ignore="MissingConstraints">
+   
+      <com.google.android.material.textfield.TextInputEditText
+         android:layout_width="match_parent"
+         android:layout_height="47dp"
+         android:background="@android:color/white"
+         android:backgroundTint="@color/gray"
+         android:inputType="number|numberSigned">
+   
+      </com.google.android.material.textfield.TextInputEditText>
+   
+   
+   </com.google.android.material.textfield.TextInputLayout>
+   
+   <com.google.android.material.textfield.TextInputLayout
+      
+      android:id="@+id/txtDireccion"
+      android:layout_width="359dp"
+      android:layout_height="87dp"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="32dp"
+      android:layout_marginEnd="32dp"
+      android:hint="@string/direcci_n"
+      app:boxBackgroundMode="outline"
+      app:boxCornerRadiusTopEnd="10dp"
+      app:boxCornerRadiusTopStart="10dp"
+      app:helperText="Ingrese su Dirección"
+      app:helperTextEnabled="true"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/txtNombre"
+      tools:ignore="MissingConstraints">
+   
+      <com.google.android.material.textfield.TextInputEditText
+         android:layout_width="match_parent"
+         android:layout_height="47dp"
+         android:background="@android:color/white"
+         android:backgroundTint="@color/gray">
+   
+      </com.google.android.material.textfield.TextInputEditText>
+   
+   
+   </com.google.android.material.textfield.TextInputLayout>
+   
+   <TextView
+      android:id="@+id/textView"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="16dp"
+      android:text="@string/bienvenido_al_inicio"
+      android:textAlignment="center"
+      android:textSize="24sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"></TextView>
+   
+   <com.google.android.material.textfield.TextInputLayout
+      
+      android:id="@+id/txtNombre"
+      android:layout_width="359dp"
+      android:layout_height="87dp"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="32dp"
+      android:hint="@string/nombre_completo"
+      app:boxBackgroundMode="outline"
+      app:boxCornerRadiusTopEnd="10dp"
+      app:boxCornerRadiusTopStart="10dp"
+      app:boxStrokeColor="@color/green"
+      app:helperText="Ingrese su Nombre Completo"
+      app:helperTextEnabled="true"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView2"
+      tools:ignore="MissingConstraints">
+   
+      <com.google.android.material.textfield.TextInputEditText
+         android:layout_width="match_parent"
+         android:layout_height="47dp"
+         android:background="@color/green"
+         android:backgroundTint="@color/gray">
+   
+      </com.google.android.material.textfield.TextInputEditText>
+   
+   
+   </com.google.android.material.textfield.TextInputLayout>
+   
+   <TextView
+      android:id="@+id/textView2"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="16dp"
+      android:text="@string/digite_los_siguentes_datos_personales"
+      android:textAlignment="center"
+      android:textColor="@color/primary"
+      android:textSize="16sp"
+      android:textStyle="normal"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView"></TextView>
+   
+   <Spinner
+      android:id="@+id/estado_civil_spinner"
+      android:layout_width="380dp"
+      android:layout_height="48dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="16dp"
+      android:backgroundTint="@android:color/black"
+      android:entries="@array/estados_civiles"
+      android:prompt="@string/selecciona_estado_civil"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/texestadocivil"></Spinner>
+   
+   
+   <Button
+      android:id="@+id/btnAgregar"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="16dp"
+      android:padding="5dp"
+      android:text="@string/enviar_informaci_n"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/estado_civil_spinner" />
+   
+   <TextView
+      android:id="@+id/texestadocivil"
+      android:layout_width="351dp"
+      android:layout_height="28dp"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="24dp"
+      android:layout_marginEnd="32dp"
+      android:text="@string/selecccione_su_estado_civil"
+      android:textAlignment="gravity"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/txtNumerot" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

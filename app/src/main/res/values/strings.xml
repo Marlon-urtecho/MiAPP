@@ -1,4 +1,19 @@
 <resources>
    <string name="app_name">MiAPP</string>
    <string name="registrarse">Registrarse</string>
+   <string name="bienvenido_al_inicio">Bienvenido al Inicio</string>
+   <string name="registro_de_usuarios">Registro de Usuarios</string>
+   <string name="inicio_de_sessi_n">Inicio de Sessión</string>
+   <string name="selecciona_estado_civil">Selecciona tu estado civil</string>
+   <string name="direcci_n">Dirección</string>
+   <string name="numero_de_contacto">Numero de Contacto</string>
+   <string name="edad">Edad</string>
+   <string name="enviar_informaci_n">Enviar Información</string>
+   <string name="nombre_completo">Nombre Completo</string>
+   <string name="selecccione_su_estado_civil">Selecccione Su estado Civil</string>
+   <string name="digite_los_siguentes_datos_personales">Digite los Siguentes Datos Personales</string>
+   <string name="iniciar_session_en_el_inicio">Iniciar Session en el Inicio</string>
+   <string name="ingrese_la_contrase_a">Ingrese la contraseña</string>
+
+
 </resources>
